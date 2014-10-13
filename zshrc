@@ -111,6 +111,25 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
+ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="bira"
+DISABLE_AUTO_TITLE="true"
+plugins=(git ruby)
+source $ZSH/oh-my-zsh.sh
+alias tmux='TERM=xterm-256color tmux -2'
+alias tmuxinator='TERM=xterm-256color tmuxinator'
+alias mux='TERM=xterm-256color mux'
+alias unist='unicorn_rails -c config/unicorn.rb -d -w &'
+alias ngacs='sudo tail -f /var/log/nginx/access.log'
+alias ngerr='sudo tail -f /var/log/nginx/error.log'
+alias zr='zeus rspec'
+alias l='ls -l'
+alias la='ls -la'
+alias up='sudo apt-get update && sudo apt-get upgrade'
+alias zshconf='vim ~/.zshrc && source ~/.zshrc'
+alias rtest='rake db:drop RAILS_ENV=test && rake db:create RAILS_ENV=test && rake db:migrate RAILS_ENV=test'
+alias grep='grep -rin'
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
