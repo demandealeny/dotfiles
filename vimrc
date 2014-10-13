@@ -134,10 +134,10 @@ let g:mustache_abbreviations = 1
 let g:rspec_command = "!zeus test {spec}"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:tmuxline_separators = {
-    \'left' : ' ♩',
-    \'left_alt': ' ♩ ',
-    \'right' : ' ♩ ',
-    \'right_alt' : ' ♩ ',
+    \'left' : ' |',
+    \'left_alt': ' | ',
+    \'right' : ' | ',
+    \'right_alt' : ' | ',
     \'space' : ' '}
 let g:tmuxline_preset = {
       \'a'    : '#S',
@@ -146,8 +146,8 @@ let g:tmuxline_preset = {
       \'cwin' : '#I #W',
       \'z'    : '#H'}
 let g:airline_theme = 'wombat'
-let g:airline_left_sep = ' ♩ '
-let g:airline_right_sep = ' ♩ '
+let g:airline_left_sep = ' | '
+let g:airline_right_sep = ' | '
 set background=dark
 syntax on
 set t_Co=256
