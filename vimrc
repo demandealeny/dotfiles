@@ -131,8 +131,6 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 
-
-color Monokai
 let g:mustache_abbreviations = 1
 let g:rspec_command = "!zeus test {spec}"
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -154,6 +152,7 @@ let g:airline_right_sep = ' | '
 set background=dark
 syntax on
 set t_Co=256
+color Monokai
 
 ""
 "" General Mappings (Normal, Visual, Operator-pending)
