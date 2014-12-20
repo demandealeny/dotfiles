@@ -116,6 +116,7 @@ export ZSH_THEME="bira"
 DISABLE_AUTO_TITLE="true"
 plugins=(git ruby)
 source $ZSH/oh-my-zsh.sh
+source ~/.nvm/nvm.sh
 alias tmux='TERM=xterm-256color tmux -2'
 alias tmuxinator='TERM=xterm-256color tmuxinator'
 alias mux='TERM=xterm-256color mux'
@@ -135,3 +136,4 @@ alias grep='grep -rin'
 
 export PATH="/home/vagrant/.rvm/gems/ruby-2.1.2/bin:/home/vagrant/.rvm/gems/ruby-2.1.2@global/bin:/home/vagrant/.rvm/rubies/ruby-2.1.2/bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/home/vagrant/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/vagrant/.rvm/bin:/home/vagrant/.rvm/bin"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/ressources/phantomjs/bin"
