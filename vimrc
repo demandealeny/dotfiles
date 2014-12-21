@@ -29,6 +29,7 @@ set splitright
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 set background=dark
 set t_Co=256
+set cursorline
 
 let mapleader = ","
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
@@ -101,6 +102,9 @@ nnoremap <leader>l :ls<CR>
 nnoremap <leader>sb :sb<space>
 nnoremap <leader>vb :vertical sb<space>
 nnoremap <leader>\ <c-^>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
@@ -134,9 +138,12 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+" Color setting
 filetype plugin indent on
-"colorscheme Monokai
-colorscheme molokai
+colorscheme Monokai
+"colorscheme molokai
+
+hi MatchParen cterm=underline ctermbg=none ctermfg=none
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
