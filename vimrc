@@ -14,7 +14,6 @@ set laststatus=2
 set autowrite
 set scrolloff=10
 set wildmenu
-set undofile
 set tabstop=2
 set shiftwidth=2
 set shiftround
@@ -32,20 +31,18 @@ set t_Co=256
 set cursorline
 
 let mapleader = ","
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 let g:syntastic_javascript_checkers = ['jshint']
-let Tlist_GainFocus_On_ToggleOpen = 1
 let g:html_indent_tags = 'li\|p'
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:mustache_abbreviations = 1
-let g:rspec_command = "!zeus test {spec}"
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:rspec_command = "!rr {spec}"
+"let g:UltiSnipsExpandTrigger="<tab>"
 let g:tmuxline_separators = {
-    \'left' : ' |',
-    \'left_alt': ' | ',
-    \'right' : ' | ',
-    \'right_alt' : ' | ',
+    \'left' : ' ♩',
+    \'left_alt': ' ♩ ',
+    \'right' : ' ♩ ',
+    \'right_alt' : ' ♩ ',
     \'space' : ' '}
 let g:tmuxline_preset = {
       \'a'    : '#S',
@@ -54,14 +51,12 @@ let g:tmuxline_preset = {
       \'cwin' : '#I #W',
       \'z'    : '#H'}
 let g:airline_theme = 'wombat'
-let g:airline_left_sep = ' | '
-let g:airline_right_sep = ' | '
+let g:airline_left_sep = ' ♩ '
+let g:airline_right_sep = ' ♩ '
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components'
 
-map <Leader>ct :!ctags -R .<CR>
 map <leader>n :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 map <leader>/ <plug>NERDCommenterToggle<CR>
-map <Leader>p :!clear<cr> :call RunLastSpec()<CR>
-map <Leader>a :!clear<cr> :call RunAllSpecs()<CR>
 map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
@@ -79,6 +74,7 @@ map  <C-9> 9gt
 
 omap / <Plug>(easymotion-tn)
 
+nmap <Leader>bb :ls<CR>:buffer<Space>
 nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
 nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
 nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
@@ -98,6 +94,7 @@ imap <C-8> <Esc>8gt
 imap <C-9> <Esc>9gt
 imap <c-f> <Plug>snipMateNextOrTrigger
 
+nnoremap <leader>c :! 
 nnoremap <leader>l :ls<CR>
 nnoremap <leader>sb :sb<space>
 nnoremap <leader>vb :vertical sb<space>
@@ -109,11 +106,14 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-nnoremap <leader>tt :TlistToggle<cr>
-nnoremap <leader>to :TlistOpen<cr>
-nnoremap <leader>tc :TlistClose<cr>
-nnoremap <Leader>t :!clear<cr> :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>s :!clear<cr> :call RunNearestSpec()<CR>
+map <Leader>p :!clear<cr>:call RunLastSpec()<CR>
+map <Leader>a :!clear<cr>:call RunAllSpecs()<CR>
+nnoremap <Leader>t :!clear<cr>:call RunCurrentSpecFile()<CR>
+nnoremap <Leader>s :!clear<cr>:call RunNearestSpec()<CR>
+nnoremap <Leader>f :!clear<cr>:!rr spec/features<CR>
+nnoremap <Leader>r :!clear<cr>:!rr spec/requests<CR>
+nnoremap <Leader>u :!clear<cr>:!rr_ut<CR>
+nnoremap <Leader>tn :tabnew<CR>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
@@ -124,11 +124,7 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-p>
 
 cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
-
-inoreabbrev fn function
-cnoreabbrev W w
-cnoreabbrev vsb vertical sb
-cnoreabbrev te tabedit
+"b
 
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
@@ -137,6 +133,8 @@ endif
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
+
+abbr bp binding.pry
 
 " Color setting
 filetype plugin indent on
@@ -165,14 +163,17 @@ augroup vimrcEx
   autocmd FileType markdown setlocal spell
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
   autocmd FileType css,scss,sass setlocal iskeyword+=-
+  autocmd FileType html,haml setlocal textwidth=9999
+  autocmd FileType go set tabstop=4
+  autocmd FileType go set shiftwidth=4
+  autocmd FileType go set list listchars=tab:\ \ ,trail:·
+  autocmd FileType go abbr fp fmt.Print
+  autocmd FileType go abbr fpl fmt.Println
+  autocmd FileType go abbr fpf fmt.Printf
+  autocmd FileType go abbr wr w http.ResponseWriter, req *http.Request
 augroup END
 
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:<CR>
-  vmap <Leader>a: :Tabularize /:<CR>
-endif
+autocmd BufNewFile * :ClearAllCtrlPCaches
 
 function! InsertTabWrapper()
   let col = col(".") - 1
@@ -182,7 +183,3 @@ function! InsertTabWrapper()
     return "\<c-n>"
   endif
 endfunction
-
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif

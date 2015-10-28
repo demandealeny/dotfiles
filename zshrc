@@ -61,13 +61,19 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 export VISUAL=vim
 export EDITOR=$VISUAL
 
+# Go config
+export GOPATH=$HOME/projects/go
+export PATH="$GOPATH/bin:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # ensure dotfiles bin directory is loaded first
+export PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH"
 export PATH="$HOME/.bin:/usr/local/bin:$PATH"
 
 # load rbenv if available
-if which rbenv &>/dev/null ; then
-  eval "$(rbenv init - --no-rehash)"
-fi
+#if which rbenv &>/dev/null ; then
+  #eval "$(rbenv init - --no-rehash)"
+#fi
 
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
@@ -117,6 +123,11 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git ruby)
 source $ZSH/oh-my-zsh.sh
 source ~/.nvm/nvm.sh
+
+# Launch node
+nvm use 0.10
+
+# Alias
 alias tmux='TERM=xterm-256color tmux -2'
 alias tmuxinator='TERM=xterm-256color tmuxinator'
 alias mux='TERM=xterm-256color mux'
@@ -126,14 +137,24 @@ alias ngerr='sudo tail -f /var/log/nginx/error.log'
 alias zr='zeus rspec'
 alias l='ls -l'
 alias la='ls -la'
+alias gs='g s'
+alias gst='g st'
+alias nv='nvim'
 alias up='sudo apt-get update && sudo apt-get upgrade'
+alias db:reset='rak db:drop && rak db:create && rak db:migrate'
 alias zshconf='vim ~/.zshrc && source ~/.zshrc'
-alias rtest='rake db:drop RAILS_ENV=test && rake db:create RAILS_ENV=test && rake db:migrate RAILS_ENV=test'
-alias grep='grep -rin'
+alias rmigrate='rak db:migrate && rak db:rollback && rak db:migrate'
+alias rtest='rak db:drop RAILS_ENV=test && rak db:create RAILS_ENV=test && rak db:migrate RAILS_ENV=test'
+alias egrep='grep -rn'
+alias ssh-tco-prod='ssh tco_prod@sd-49068.dedibox.fr -p 622'
+alias tprod='ssh-tco-prod -t "cd webapp/current/; bash -l"'
+alias start_postgre='pg_ctl -D /usr/local/var/postgres -l logfile start'
+alias t='tmux'
+alias htg='history | grep '
 
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-export PATH="/home/vagrant/.rvm/gems/ruby-2.1.2/bin:/home/vagrant/.rvm/gems/ruby-2.1.2@global/bin:/home/vagrant/.rvm/rubies/ruby-2.1.2/bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/home/vagrant/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/vagrant/.rvm/bin:/home/vagrant/.rvm/bin"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
 export PATH="$PATH:$HOME/ressources/phantomjs/bin"
+export PATH="$PATH:$HOME/bin"

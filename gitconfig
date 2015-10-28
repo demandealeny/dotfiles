@@ -30,3 +30,6 @@
 	rebase = true
 [rerere]
 	enabled = true
+[github]
+	user = Lainnie
+	email = l.diallo.pro@gmail.com
