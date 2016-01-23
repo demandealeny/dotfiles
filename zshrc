@@ -64,6 +64,7 @@ export EDITOR=$VISUAL
 # Go config
 export GOPATH=$HOME/projects/go
 export PATH="$GOPATH/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # ensure dotfiles bin directory is loaded first
@@ -122,10 +123,10 @@ export ZSH_THEME="bira"
 DISABLE_AUTO_TITLE="true"
 plugins=(git ruby)
 source $ZSH/oh-my-zsh.sh
-source ~/.nvm/nvm.sh
+# source ~/.nvm/nvm.sh
 
 # Launch node
-nvm use 0.10
+# nvm use 0.10
 
 # Alias
 alias tmux='TERM=xterm-256color tmux -2'
@@ -151,6 +152,7 @@ alias tprod='ssh-tco-prod -t "cd webapp/current/; bash -l"'
 alias start_postgre='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias t='tmux'
 alias htg='history | grep '
+alias gopath='export GOPATH=`pwd`'
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

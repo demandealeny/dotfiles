@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Define bundles via Github repos
+Plugin 'whatyouhide/vim-gotham'
 Plugin 'danro/rename.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'pbrisbin/vim-mkdir'
@@ -26,7 +27,6 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'reedes/vim-colors-pencil'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -38,7 +38,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Raimondi/delimitMate'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'fatih/vim-go'
-Plugin 'nvie/vim-flake8'
+Plugin 'Valloric/YouCompleteMe'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

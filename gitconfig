@@ -10,8 +10,8 @@
   co = checkout
   st = status
   up = !git fetch origin && git rebase origin/master
-	s = status -s
-	lg = log --oneline --decorate --all --graph
+  s = status -s
+  lg = log --oneline --decorate --all --graph
 [core]
   excludesfile = ~/.gitignore
 	autocrlf = input

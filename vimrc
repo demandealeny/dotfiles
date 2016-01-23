@@ -138,7 +138,7 @@ abbr bp binding.pry
 
 " Color setting
 filetype plugin indent on
-colorscheme Monokai
+colorscheme gotham256
 "colorscheme molokai
 
 hi MatchParen cterm=underline ctermbg=none ctermfg=none
