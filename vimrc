@@ -29,6 +29,7 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 set background=dark
 set t_Co=256
 set cursorline
+set relativenumber
 
 let mapleader = ","
 let g:syntastic_javascript_checkers = ['jshint']
@@ -36,7 +37,7 @@ let g:html_indent_tags = 'li\|p'
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:mustache_abbreviations = 1
-let g:rspec_command = "!rr {spec}"
+let g:rspec_command = "Dispatch rr {spec}"
 "let g:UltiSnipsExpandTrigger="<tab>"
 let g:tmuxline_separators = {
     \'left' : ' ♩',

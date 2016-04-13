@@ -124,6 +124,8 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git ruby)
 source $ZSH/oh-my-zsh.sh
 # source ~/.nvm/nvm.sh
+eval $(ssh-agent -s)
+ssh-add
 
 # Launch node
 # nvm use 0.10
@@ -151,8 +153,12 @@ alias ssh-tco-prod='ssh tco_prod@sd-49068.dedibox.fr -p 622'
 alias tprod='ssh-tco-prod -t "cd webapp/current/; bash -l"'
 alias start_postgre='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias t='tmux'
+alias ta='tmux attach'
 alias htg='history | grep '
 alias gopath='export GOPATH=`pwd`'
+alias grs='git rebase origin/staging staging'
+alias grm='git rebase origin/master master'
+alias sperso='ssh root@perso.ks'
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
