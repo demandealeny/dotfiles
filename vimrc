@@ -34,10 +34,11 @@ set relativenumber
 let mapleader = ","
 let g:syntastic_javascript_checkers = ['jshint']
 let g:html_indent_tags = 'li\|p'
+let g:netrw_liststyle=3
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:mustache_abbreviations = 1
-let g:rspec_command = "Dispatch rr {spec}"
+let g:rspec_command = "!rr {spec}"
 "let g:UltiSnipsExpandTrigger="<tab>"
 let g:tmuxline_separators = {
     \'left' : ' ♩',
@@ -51,12 +52,12 @@ let g:tmuxline_preset = {
       \'win'  : '#I #W',
       \'cwin' : '#I #W',
       \'z'    : '#H'}
-let g:airline_theme = 'wombat'
+let g:airline_theme = 'gotham256'
 let g:airline_left_sep = ' ♩ '
 let g:airline_right_sep = ' ♩ '
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components'
 
-map <leader>n :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+map <leader>n :edit .<CR>
 map <leader>/ <plug>NERDCommenterToggle<CR>
 map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
@@ -75,6 +76,8 @@ map  <C-9> 9gt
 
 omap / <Plug>(easymotion-tn)
 
+nnoremap <Leader>A :A<CR>
+nnoremap <Leader>AS :AS<CR>
 nmap <Leader>bb :ls<CR>:buffer<Space>
 nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
 nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>

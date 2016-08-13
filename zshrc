@@ -6,7 +6,6 @@ git_prompt_info() {
   fi
 }
 setopt promptsubst
-export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
 
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
@@ -127,6 +126,7 @@ source $ZSH/oh-my-zsh.sh
 eval $(ssh-agent -s)
 ssh-add
 
+#export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
 # Launch node
 # nvm use 0.10
 
