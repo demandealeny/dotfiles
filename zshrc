@@ -118,7 +118,7 @@ _load_settings() {
 _load_settings "$HOME/.zsh/configs"
 
 ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="bira"
+export ZSH_THEME="spaceship"
 DISABLE_AUTO_TITLE="true"
 plugins=(git ruby)
 source $ZSH/oh-my-zsh.sh
@@ -153,6 +153,7 @@ alias ssh-tco-prod='ssh tco_prod@sd-49068.dedibox.fr -p 622'
 alias tprod='ssh-tco-prod -t "cd webapp/current/; bash -l"'
 alias start_postgre='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias t='tmux'
+alias v='vim'
 alias ta='tmux attach'
 alias htg='history | grep '
 alias gopath='export GOPATH=`pwd`'
