@@ -166,6 +166,7 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd FileType markdown setlocal spell
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+  autocmd FileType javascript set filetype=javascript.jsx
   autocmd FileType css,scss,sass setlocal iskeyword+=-
   autocmd FileType html,haml setlocal textwidth=9999
   autocmd FileType go set tabstop=4
