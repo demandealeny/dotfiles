@@ -23,7 +23,7 @@ done
 autoload -U colors
 colors
 
-# enable colored output from ls, etc
+## enable colored output from ls, etc
 export CLICOLOR=1
 
 # history settings
@@ -65,15 +65,12 @@ export GOPATH=$HOME/projects/go
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # ensure dotfiles bin directory is loaded first
 export PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH"
 export PATH="$HOME/.bin:/usr/local/bin:$PATH"
-
-# load rbenv if available
-#if which rbenv &>/dev/null ; then
-  #eval "$(rbenv init - --no-rehash)"
-#fi
+export JAVA_HOME="$HOME/ressources/java/jdk1.8.0_144"
+export ANDROID_HOME="$HOME/Android"
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
@@ -122,13 +119,11 @@ export ZSH_THEME="spaceship"
 DISABLE_AUTO_TITLE="true"
 plugins=(git ruby)
 source $ZSH/oh-my-zsh.sh
-# source ~/.nvm/nvm.sh
-eval $(ssh-agent -s)
-ssh-add
 
-#export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
-# Launch node
-# nvm use 0.10
+#eval $(ssh-agent -s)
+#ssh-add
+
+export PS1="Taffer dur, c'pas tout d'être doué ${PS1}"
 
 # Alias
 alias tmux='TERM=xterm-256color tmux -2'
@@ -160,10 +155,34 @@ alias gopath='export GOPATH=`pwd`'
 alias grs='git rebase origin/staging staging'
 alias grm='git rebase origin/master master'
 alias sperso='ssh root@perso.ks'
+alias iemt='iex -S mix test --trace'
+alias iem='iex -S mix'
+alias sshKimsufi='ssh root@91.121.90.227'
+alias beep='for i in {1..5}; do echo ; sleep 1; done'
+alias notes='vim ~/ressources/notes.md'
+
+export REACT_EDITOR='vim'
+
+setxkbmap -option caps:escape
+
+bindkey -v
+
+function zle-line-init zle-keymap-select {
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
-export PATH="$PATH:$HOME/ressources/phantomjs/bin"
 export PATH="$PATH:$HOME/bin"
+
+export NVM_DIR="$HOME/.nvm"
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+
+# Launch manually if needed.
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
