@@ -68,9 +68,9 @@ export PATH=$PATH:/usr/local/go/bin
 # ensure dotfiles bin directory is loaded first
 export PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH"
 export PATH="$HOME/.bin:/usr/local/bin:$PATH"
-export JAVA_HOME="$HOME/ressources/java/jdk1.8.0_144"
-export ANDROID_HOME="$HOME/Android"
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+#export JAVA_HOME="$HOME/ressources/java/jdk1.8.0_144"
+#export ANDROID_HOME="$HOME/Android"
+#export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
@@ -163,7 +163,7 @@ alias notes='vim ~/ressources/notes.md'
 
 export REACT_EDITOR='vim'
 
-setxkbmap -option caps:escape
+#setxkbmap -option caps:escape
 
 bindkey -v
 
@@ -186,3 +186,4 @@ export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 # Launch manually if needed.
 #[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

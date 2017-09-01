@@ -65,17 +65,11 @@ map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 map <Leader>= <C-w>=
-map <Leader>1 1gt
-map <Leader>2 2gt
-map <Leader>3 3gt
-map <Leader>4 4gt
-map <Leader>5 5gt
 map <leader>n :edit .<CR>
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 omap / <Plug>(easymotion-tn)
 
-nnoremap <Leader>A :A<CR>
-nnoremap <Leader>AS :AS<CR>
 nmap <Leader>bb :ls<CR>:buffer<Space>
 nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
 nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
@@ -95,8 +89,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <leader>fef :normal! gg=G``<CR>
-
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
@@ -118,6 +110,11 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 augroup vimrcEx
   autocmd!
