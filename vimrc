@@ -32,6 +32,10 @@ set cursorline
 set relativenumber
 set wildignore+=*/_build/*,*/deps/*
 
+" check one time after 4s of inactivity in normal mode
+set autoread
+au CursorHold * checktime
+
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 
