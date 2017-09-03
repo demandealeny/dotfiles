@@ -38,6 +38,8 @@ Plugin 'Shougo/neocomplete'
 Plugin 'sbdchd/neoformat'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-fugitive'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
