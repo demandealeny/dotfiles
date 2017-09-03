@@ -60,12 +60,13 @@ let g:airline_left_sep = ' ♩ '
 let g:airline_right_sep = ' ♩ '
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|jest_*'
 
+map <C-m> :Neoformat<CR>
 map <leader>/ <plug>NERDCommenterToggle<CR>
 map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 map <Leader>= <C-w>=
-map <leader>n :edit .<CR>
+map <Leader>n :NERDTreeToggle<CR>
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 omap / <Plug>(easymotion-tn)
@@ -110,11 +111,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
-
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
 
 augroup vimrcEx
   autocmd!
