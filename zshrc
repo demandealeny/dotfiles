@@ -123,8 +123,6 @@ source $ZSH/oh-my-zsh.sh
 #eval $(ssh-agent -s)
 #ssh-add
 
-export PS1="Taffer dur, c'pas tout d'être doué ${PS1}"
-
 # Alias
 alias tmux='TERM=xterm-256color tmux -2'
 alias tmuxinator='TERM=xterm-256color tmuxinator'
@@ -159,7 +157,7 @@ alias iemt='iex -S mix test --trace'
 alias iem='iex -S mix'
 alias sshKimsufi='ssh root@91.121.90.227'
 alias beep='for i in {1..5}; do echo ; sleep 1; done'
-alias notes='vim ~/ressources/notes.md'
+alias notes='vim ~/resources/notes.md'
 
 export REACT_EDITOR='vim'
 
@@ -187,3 +185,6 @@ export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 #[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+source "/home/leny/.oh-my-zsh/custom/themes/spaceship.zsh-theme"

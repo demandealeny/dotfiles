@@ -75,6 +75,8 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 omap / <Plug>(easymotion-tn)
 
+nmap <leader>a :Ack! 
+nmap <leader>o :only<cr>
 nmap <Leader>bb :ls<CR>:buffer<Space>
 nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
 nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
