@@ -14,7 +14,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'danro/rename.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'pbrisbin/vim-mkdir'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -41,6 +40,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
+Plugin 'ewilazarus/preto'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

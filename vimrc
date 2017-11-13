@@ -19,20 +19,17 @@ set shiftwidth=2
 set shiftround
 set expandtab
 set list listchars=tab:»·,trail:·
-"set textwidth=80
 set colorcolumn=+1
 set number
 set numberwidth=5
 set splitbelow
 set splitright
 set spellfile=$HOME/.vim-spell-en.utf-8.add
-set background=dark
 set t_Co=256
 set cursorline
 set relativenumber
 set wildignore+=*/_build/*,*/deps/*
 
-" check one time after 4s of inactivity in normal mode
 set autoread
 au CursorHold * checktime
 
@@ -46,7 +43,6 @@ let g:netrw_liststyle=3
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:mustache_abbreviations = 1
-let g:rspec_command = "!rr {spec}"
 let g:tmuxline_separators = {
     \'left' : ' ♩',
     \'left_alt': ' ♩ ',
@@ -64,7 +60,6 @@ let g:airline_left_sep = ' ♩ '
 let g:airline_right_sep = ' ♩ '
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|jest_*'
 
-map <C-m> :Neoformat<CR>
 map <leader>/ <plug>NERDCommenterToggle<CR>
 map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
@@ -78,10 +73,6 @@ omap / <Plug>(easymotion-tn)
 nmap <leader>a :Ack! 
 nmap <leader>o :only<cr>
 nmap <Leader>bb :ls<CR>:buffer<Space>
-nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
-nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
-nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
-nmap <leader>et :tabe <C-R>=expand('%:h').'/'<cr>
 
 imap <c-f> <Plug>snipMateNextOrTrigger
 
@@ -95,7 +86,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-nnoremap <leader>fef :normal! gg=G``<CR>
 
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
@@ -107,10 +97,7 @@ endif
 
 " Color setting
 filetype plugin indent on
-colorscheme lucario
-let &colorcolumn="".join(range(120,200),",")
-
-hi MatchParen cterm=underline ctermbg=none ctermfg=none
+colorscheme preto
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -130,7 +117,6 @@ augroup vimrcEx
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType elixir map <c-t> :!clear; mix test<cr>
   autocmd FileType javascript set filetype=javascript.jsx
   autocmd FileType css,scss,sass setlocal iskeyword+=-
   autocmd FileType html,haml,elixir setlocal textwidth=400
