@@ -55,7 +55,7 @@ let g:tmuxline_preset = {
       \'win'  : '#I #W',
       \'cwin' : '#I #W',
       \'z'    : '#H'}
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'minimalist'
 let g:airline_left_sep = ' ♩ '
 let g:airline_right_sep = ' ♩ '
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|jest_*'

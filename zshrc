@@ -115,7 +115,7 @@ _load_settings() {
 _load_settings "$HOME/.zsh/configs"
 
 ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="spaceship"
+export ZSH_THEME="minimal"
 DISABLE_AUTO_TITLE="true"
 plugins=(git ruby)
 source $ZSH/oh-my-zsh.sh
@@ -125,37 +125,19 @@ source $ZSH/oh-my-zsh.sh
 
 # Alias
 alias tmux='TERM=xterm-256color tmux -2'
-alias tmuxinator='TERM=xterm-256color tmuxinator'
-alias mux='TERM=xterm-256color mux'
-alias unist='unicorn_rails -c config/unicorn.rb -d -w &'
-alias ngacs='sudo tail -f /var/log/nginx/access.log'
-alias ngerr='sudo tail -f /var/log/nginx/error.log'
-alias zr='zeus rspec'
 alias l='ls -l'
 alias la='ls -la'
 alias gs='g s'
 alias gst='g st'
-alias nv='nvim'
-alias up='sudo apt-get update && sudo apt-get upgrade'
-alias db:reset='rak db:drop && rak db:create && rak db:migrate'
 alias zshconf='vim ~/.zshrc && source ~/.zshrc'
-alias rmigrate='rak db:migrate && rak db:rollback && rak db:migrate'
-alias rtest='rak db:drop RAILS_ENV=test && rak db:create RAILS_ENV=test && rak db:migrate RAILS_ENV=test'
-alias egrep='grep -rn'
-alias ssh-tco-prod='ssh tco_prod@sd-49068.dedibox.fr -p 622'
-alias tprod='ssh-tco-prod -t "cd webapp/current/; bash -l"'
 alias start_postgre='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias t='tmux'
 alias v='vim'
 alias ta='tmux attach'
 alias htg='history | grep '
-alias gopath='export GOPATH=`pwd`'
+alias grd='git rebase origin/develop develop'
 alias grs='git rebase origin/staging staging'
 alias grm='git rebase origin/master master'
-alias sperso='ssh root@perso.ks'
-alias iemt='iex -S mix test --trace'
-alias iem='iex -S mix'
-alias sshKimsufi='ssh root@91.121.90.227'
 alias beep='for i in {1..5}; do echo ; sleep 1; done'
 alias notes='vim ~/resources/notes.md'
 
@@ -186,5 +168,3 @@ export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
-source "/home/leny/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
