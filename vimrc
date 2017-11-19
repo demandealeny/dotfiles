@@ -38,6 +38,8 @@ let g:neocomplete#enable_at_startup = 1
 
 let mapleader = ","
 let g:syntastic_javascript_checkers = ['jshint']
+let g:jsx_ext_required = 0
+let g:javascript_plugin_flow = 1
 let g:html_indent_tags = 'li\|p'
 let g:netrw_liststyle=3
 let g:syntastic_check_on_open=1
