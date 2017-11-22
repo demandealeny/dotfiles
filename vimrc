@@ -61,6 +61,7 @@ let g:airline_theme = 'minimalist'
 let g:airline_left_sep = ' ♩ '
 let g:airline_right_sep = ' ♩ '
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|jest_*'
+let g:neoformat_try_formatprg = 1
 
 map <leader>/ <plug>NERDCommenterToggle<CR>
 map  / <Plug>(easymotion-sn)
@@ -106,6 +107,11 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *.js undojoin | Neoformat
+augroup END
 
 augroup vimrcEx
   autocmd!
