@@ -62,8 +62,10 @@ let g:airline_left_sep = ' ♩ '
 let g:airline_right_sep = ' ♩ '
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|jest_*'
 let g:neoformat_try_formatprg = 1
+let g:NERDCustomDelimiters = { 'javascript': { 'left': '/** ', 'right': ' */' } }
+let g:NERDCommentEmptyLines = 1
 
-map <leader>/ <plug>NERDCommenterToggle<CR>
+map <leader>/ <plug>NERDCommenterToggle :normal ^f<space><cr>
 map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
