@@ -40,6 +40,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
 Plugin 'ewilazarus/preto'
 Plugin 'sbdchd/neoformat'
+Plugin 'tpope/vim-unimpaired'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

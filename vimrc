@@ -73,6 +73,8 @@ map <Leader>= <C-w>=
 map <Leader>n :NERDTreeToggle<CR>
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
+nmap <leader>l :@:<cr>
+
 omap / <Plug>(easymotion-tn)
 
 nmap <leader>a :Ack! 
