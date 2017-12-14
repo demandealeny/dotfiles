@@ -46,11 +46,11 @@ let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:mustache_abbreviations = 1
 let g:tmuxline_separators = {
-    \'left' : ' ♩',
-    \'left_alt': ' ♩ ',
-    \'right' : ' ♩ ',
-    \'right_alt' : ' ♩ ',
-    \'space' : ' '}
+      \'left' : ' ♩',
+      \'left_alt': ' ♩ ',
+      \'right' : ' ♩ ',
+      \'right_alt' : ' ♩ ',
+      \'space' : ' '}
 let g:tmuxline_preset = {
       \'a'    : '#S',
       \'b'    : '#W',
@@ -63,7 +63,11 @@ let g:airline_right_sep = ' ♩ '
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|jest_*'
 let g:neoformat_try_formatprg = 1
 let g:NERDCustomDelimiters = { 'javascript': { 'left': '/** ', 'right': ' */' } }
-let g:NERDCommentEmptyLines = 1
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 map <leader>/ <plug>NERDCommenterToggle :normal ^f<space><cr>
 map  / <Plug>(easymotion-sn)
@@ -81,8 +85,6 @@ nmap <leader>a :Ack!
 nmap <leader>o :only<cr>
 nmap <Leader>bb :ls<CR>:buffer<Space>
 
-imap <c-f> <Plug>snipMateNextOrTrigger
-
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
@@ -93,6 +95,27 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif"
 
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
