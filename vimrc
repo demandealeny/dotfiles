@@ -37,7 +37,8 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 
 let mapleader = ","
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_typescript_checkers = ['tslint']
 let g:jsx_ext_required = 0
 let g:javascript_plugin_flow = 1
 let g:html_indent_tags = 'li\|p'
@@ -46,10 +47,10 @@ let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:mustache_abbreviations = 1
 let g:tmuxline_separators = {
-      \'left' : ' ♩',
-      \'left_alt': ' ♩ ',
-      \'right' : ' ♩ ',
-      \'right_alt' : ' ♩ ',
+      \'left' : ' ♪',
+      \'left_alt': ' ♪ ',
+      \'right' : ' ♪ ',
+      \'right_alt' : ' ♪ ',
       \'space' : ' '}
 let g:tmuxline_preset = {
       \'a'    : '#S',
@@ -62,7 +63,6 @@ let g:airline_left_sep = ' ♩ '
 let g:airline_right_sep = ' ♩ '
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|jest_*'
 let g:neoformat_try_formatprg = 1
-let g:NERDCustomDelimiters = { 'javascript': { 'left': '/** ', 'right': ' */' } }
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 
@@ -132,7 +132,8 @@ endif
 
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.js undojoin | Neoformat
+  autocmd BufWritePre *.js Neoformat
+  autocmd BufWritePre *.ts Neoformat
 augroup END
 
 augroup vimrcEx

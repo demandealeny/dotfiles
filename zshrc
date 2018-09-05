@@ -140,10 +140,13 @@ alias grm='git rebase origin/master master'
 alias notes='vim ~/resources/notes.md'
 alias :q='exit'
 alias :w='exit'
+alias unlock='ps -U $(whoami) -ef | grep i3lock | awk "{print $2}" | xargs kill'
+alias c='clear;'
+alias tig-reflog='git reflog --pretty=raw | tig --pretty=raw'
 
 export REACT_EDITOR='vim'
 
-#setxkbmap -option caps:escape
+setxkbmap -option caps:escape
 
 bindkey -v
 
@@ -158,7 +161,7 @@ export KEYTIMEOUT=1
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
