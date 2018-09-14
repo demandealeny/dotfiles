@@ -134,6 +134,7 @@ augroup fmt
   autocmd!
   autocmd BufWritePre *.js Neoformat
   autocmd BufWritePre *.ts Neoformat
+  autocmd BufWritePre *.tsx Neoformat
 augroup END
 
 augroup vimrcEx
