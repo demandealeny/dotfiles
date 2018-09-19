@@ -29,6 +29,7 @@ set t_Co=256
 set cursorline
 set relativenumber
 set wildignore+=*/_build/*,*/deps/*
+set visualbell
 
 set autoread
 au CursorHold * checktime
