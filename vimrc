@@ -31,8 +31,8 @@ set relativenumber
 set wildignore+=*/_build/*,*/deps/*
 set visualbell
 
-set autoread
-au CursorHold * checktime
+"set autoread
+"au CursorHold * checktime
 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
@@ -40,8 +40,8 @@ let g:neocomplete#enable_at_startup = 1
 let mapleader = ","
 let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_typescript_checkers = ['tslint']
-let g:jsx_ext_required = 0
-let g:javascript_plugin_flow = 1
+"let g:jsx_ext_required = 0
+"let g:javascript_plugin_flow = 1
 let g:html_indent_tags = 'li\|p'
 let g:netrw_liststyle=3
 let g:syntastic_check_on_open=1
@@ -78,13 +78,7 @@ map <Leader>= <C-w>=
 map <Leader>n :NERDTreeToggle<CR>
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-nmap <leader>l :@:<cr>
-
 omap / <Plug>(easymotion-tn)
-
-nmap <leader>a :Ack! 
-nmap <leader>o :only<cr>
-nmap <Leader>bb :ls<CR>:buffer<Space>
 
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -103,13 +97,6 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
