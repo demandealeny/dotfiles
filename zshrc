@@ -143,6 +143,7 @@ alias :w='exit'
 alias unlock='ps -U $(whoami) -ef | grep i3lock | awk "{print $2}" | xargs kill'
 alias c='clear;'
 alias tig-reflog='git reflog --pretty=raw | tig --pretty=raw'
+alias nvs='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 
 export REACT_EDITOR='vim'
 
