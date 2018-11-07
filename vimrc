@@ -133,6 +133,7 @@ augroup vimrcEx
     \   exe "normal g`\"" |
     \ endif
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufNewFile,BufRead Dockerfile* set filetype=dockerfile
   autocmd FileType markdown setlocal spell
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
