@@ -31,11 +31,19 @@ set relativenumber
 set wildignore+=*/_build/*,*/deps/*
 set visualbell
 
+set suffixesadd+=.js
+set suffixesadd+=.ts
+set suffixesadd+=.jsx
+set suffixesadd+=.tsx
+set path+=$PWD/node_modules
+
 "set autoread
 "au CursorHold * checktime
 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 5
 
 let mapleader = ","
 let g:syntastic_javascript_checkers = ['eslint']
@@ -62,14 +70,13 @@ let g:tmuxline_preset = {
 let g:airline_theme = 'minimalist'
 let g:airline_left_sep = ' ♩ '
 let g:airline_right_sep = ' ♩ '
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|jest_*'
+let g:ctrlp_custom_ignore = 'output\|node_modules\|DS_Store\|git\|bower_components\|jest_*'
 let g:neoformat_try_formatprg = 1
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
 
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:rustfmt_autosave = 1
+nmap <F8> :TagbarToggle<CR>
 
+nnoremap <C-t> :CtrlPTag<cr>
 map <leader>/ <plug>NERDCommenterToggle :normal ^f<space><cr>
 map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
@@ -91,15 +98,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
@@ -110,7 +108,7 @@ endif
 
 " Color setting
 filetype plugin indent on
-colorscheme preto
+colorscheme iceberg
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -121,6 +119,8 @@ endif
 augroup fmt
   autocmd!
   autocmd BufWritePre *.js Neoformat
+  autocmd BufWritePre *.css Neoformat
+  autocmd BufWritePre *.jsx Neoformat
   autocmd BufWritePre *.ts Neoformat
   autocmd BufWritePre *.tsx Neoformat
 augroup END

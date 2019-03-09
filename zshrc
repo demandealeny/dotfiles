@@ -123,6 +123,21 @@ source $ZSH/oh-my-zsh.sh
 #eval $(ssh-agent -s)
 #ssh-add
 
+notes() {
+  folder="$HOME/resources/notes"
+  file=$1
+
+  if [ ! -d "$folder" ]; then
+    mkdir -p $folder
+  fi
+
+  if [ -z "$file" ]; then
+    vim "$folder/notes.md"
+  else
+    vim "$folder/$file.md"
+  fi
+}
+
 # Alias
 alias tmux='TERM=xterm-256color tmux -2'
 alias l='ls -l'
@@ -137,13 +152,17 @@ alias ta='tmux attach'
 alias grd='git rebase origin/develop develop'
 alias grs='git rebase origin/staging staging'
 alias grm='git rebase origin/master master'
-alias notes='vim ~/resources/notes.md'
 alias :q='exit'
 alias :w='exit'
 alias unlock='ps -U $(whoami) -ef | grep i3lock | awk "{print $2}" | xargs kill'
 alias c='clear;'
 alias tig-reflog='git reflog --pretty=raw | tig --pretty=raw'
 alias nvs='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
+alias xrandr-home="xrandr --output eDP1 --auto --output HDMI1 --mode 1920x1080 --left-of eDP1"
+alias xrandr-office="xrandr --output eDP1 --auto --output DP1 --mode 2560x1440 --left-of eDP1"
+alias docker-clean-container="docker rm `docker ps -qa --no-trunc --filter 'status=exited'`"
+alias docker-clean-images="docker rmi `docker images | grep 'none' | awk '/ / { print $3 }'`"
+alias docker-clean="docker-clean-container && docker-clean-images"
 
 export REACT_EDITOR='vim'
 
@@ -167,8 +186,15 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
+source $HOME/.cargo/env
+
 # Launch manually if needed.
 #[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+fpath=($fpath "/home/leny/.zfunctions")
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
