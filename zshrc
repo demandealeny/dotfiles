@@ -68,9 +68,6 @@ export PATH=$PATH:/usr/local/go/bin
 # ensure dotfiles bin directory is loaded first
 export PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH"
 export PATH="$HOME/.bin:/usr/local/bin:$PATH"
-#export JAVA_HOME="$HOME/ressources/java/jdk1.8.0_144"
-#export ANDROID_HOME="$HOME/Android"
-#export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
@@ -186,7 +183,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
-source $HOME/.cargo/env
+[ -s $HOME/.cargo/env ] && source $HOME/.cargo/env
 
 # Launch manually if needed.
 #[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -196,5 +193,5 @@ source $HOME/.cargo/env
 fpath=($fpath "/home/leny/.zfunctions")
 
   # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
+  # autoload -U promptinit; promptinit
+  # prompt spaceship
