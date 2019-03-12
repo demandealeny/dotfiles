@@ -182,6 +182,7 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+export PATH="$HOME/.yarn/bin:$PATH"
 
 [ -s $HOME/.cargo/env ] && source $HOME/.cargo/env
 
