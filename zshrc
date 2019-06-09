@@ -57,7 +57,7 @@ bindkey "^N" insert-last-word
 bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 
 # use vim as the visual editor
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR=$VISUAL
 
 # Go config
@@ -144,7 +144,7 @@ alias gst='g st'
 alias zshconf='vim ~/.zshrc && source ~/.zshrc'
 alias start_postgre='pg_ctl -D /usr/local/var/postgres -l logfile start'
 alias t='tmux'
-alias v='vim'
+alias v='nvim'
 alias ta='tmux attach'
 alias grd='git rebase origin/develop develop'
 alias grs='git rebase origin/staging staging'
@@ -160,6 +160,8 @@ alias xrandr-office="xrandr --output eDP1 --auto --output DP1 --mode 2560x1440 -
 alias docker-clean-container="docker rm `docker ps -qa --no-trunc --filter 'status=exited'`"
 alias docker-clean-images="docker rmi `docker images | grep 'none' | awk '/ / { print $3 }'`"
 alias docker-clean="docker-clean-container && docker-clean-images"
+alias vpncopy="cat ~/resources/vpncriteo | clipcopy"
+alias ermsssh="cat ~/resources/storetail.pass | clipcopy; ssh ermsv1"
 
 export REACT_EDITOR='vim'
 

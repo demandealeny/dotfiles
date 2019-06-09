@@ -147,8 +147,8 @@ bindsym $mod+Ctrl+o move workspace to output left
 #                 set $ws2 2:
 set $ws1 "1:1-code"
 set $ws2 "2:2-logs"
-set $ws3 "3:3-Firefox"
-set $ws4 "4:4-Chromium"
+set $ws3 "3:3-Chromium"
+set $ws5 "5:5-Firefox"
 set $ws5 5
 set $ws6 6
 set $ws7 7
@@ -185,8 +185,8 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
-assign [class="Firefox"] $ws3
-assign [class="Chromium"] $ws4
+assign [class="Chromium"] $ws3
+assign [class="Firefox"] $ws5
 assign [class="Slack"] $ws8
 
 # Autostart applications
