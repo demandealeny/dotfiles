@@ -155,6 +155,7 @@ alias unlock='ps -U $(whoami) -ef | grep i3lock | awk "{print $2}" | xargs kill'
 alias c='clear;'
 alias tig-reflog='git reflog --pretty=raw | tig --pretty=raw'
 alias nvs='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
+alias rvs='[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"'
 alias xrandr-home="xrandr --output eDP1 --auto --output HDMI1 --mode 1920x1080 --left-of eDP1"
 alias xrandr-office="xrandr --output eDP1 --auto --output DP1 --mode 2560x1440 --left-of eDP1"
 alias docker-clean-container="docker rm `docker ps -qa --no-trunc --filter 'status=exited'`"
