@@ -148,6 +148,7 @@ bindsym $mod+Ctrl+o move workspace to output left
 set $ws1 "1:1-code"
 set $ws2 "2:2-logs"
 set $ws3 "3:3-Chromium"
+set $ws4 4
 set $ws5 "5:5-Firefox"
 set $ws5 5
 set $ws6 6
@@ -290,7 +291,7 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 60 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
