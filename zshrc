@@ -163,6 +163,8 @@ alias docker-clean-images="docker rmi `docker images | grep 'none' | awk '/ / { 
 alias docker-clean="docker-clean-container && docker-clean-images"
 alias vpncopy="cat ~/resources/vpncriteo | clipcopy"
 alias ermsssh="cat ~/resources/storetail.pass | clipcopy; ssh ermsv1"
+alias yw="yarn workspace"
+alias yws="yarn workspaces"
 
 export REACT_EDITOR='vim'
 
