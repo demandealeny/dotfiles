@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+try {
+  const [, , amazon] = process.argv;
+
+  const matches = [...amazon.matchAll(/(src|href)=(".+?")/g)];
+
+  const [[, , href], [, , src1], [, , src2]] = matches;
+
+  console.log(
+    `
+  <AmazonBook
+    author=""
+    title=""
+    href=%s
+    srcImg=%s
+    srcPixel=%s
+  />
+    `,
+    href,
+    src1,
+    src2
+  );
+} catch (e) {
+  console.error(
+    "Something went wrong, amazon tags where propably badly formatted",
+    "\n",
+    e.message
+  );
+}
