@@ -158,8 +158,8 @@ alias nvs='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 alias rvs='[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"'
 alias xrandr-home="xrandr --output eDP1 --auto --output HDMI1 --mode 1920x1080 --left-of eDP1"
 alias xrandr-office="xrandr --output eDP1 --auto --output DP1 --mode 2560x1440 --left-of eDP1"
-alias docker-clean-container="docker rm `docker ps -qa --no-trunc --filter 'status=exited'`"
-alias docker-clean-images="docker rmi `docker images | grep 'none' | awk '/ / { print $3 }'`"
+# alias docker-clean-container="docker rm `docker ps -qa --no-trunc --filter 'status=exited'`"
+# alias docker-clean-images="docker rmi `docker images | grep 'none' | awk '/ / { print $3 }'`"
 alias docker-clean="docker-clean-container && docker-clean-images"
 alias vpncopy="cat ~/resources/vpncriteo | clipcopy"
 alias ermsssh="cat ~/resources/storetail.pass | clipcopy; ssh ermsv1"
@@ -192,8 +192,8 @@ export PATH="$HOME/.yarn/bin:$PATH"
 [ -s $HOME/.cargo/env ] && source $HOME/.cargo/env
 
 # Launch manually if needed.
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 fpath=($fpath "/home/leny/.zfunctions")
@@ -201,3 +201,7 @@ fpath=($fpath "/home/leny/.zfunctions")
   # Set Spaceship ZSH as a prompt
   # autoload -U promptinit; promptinit
   # prompt spaceship
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
