@@ -57,7 +57,7 @@ bindkey "^N" insert-last-word
 bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 
 # use vim as the visual editor
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR=$VISUAL
 
 # Go config
@@ -136,6 +136,7 @@ notes() {
 }
 
 # Alias
+alias ne='emacs -nw'
 alias tmux='TERM=xterm-256color tmux -2'
 alias l='ls -l'
 alias la='ls -la'
@@ -186,8 +187,8 @@ export LANG=en_US.UTF-8
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 export NVM_DIR="$HOME/.nvm"
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 [ -s $HOME/.cargo/env ] && source $HOME/.cargo/env
 
