@@ -51,7 +51,7 @@
   (defun bdd/keywords ()
     "Use hi-lock to highlight specific words"
     (setq case-fold-search nil)
-    (hi-lock-face-buffer "\\b\\(Ziva\\|Mcgee\\|Tony\\|Gibbs\\)\\b" 'bdd/keyword-user)
+    (hi-lock-face-buffer "\\b\\(Ziva\'?s?\\|Mcgee\'?s?\\|Tony\'?s?\\|Gibbs\'?s?\\)\\b" 'bdd/keyword-user)
     (hi-lock-face-buffer "\\b\\(GIVEN\\)\\b" 'bdd/keyword-given)
     (hi-lock-face-buffer "\\b\\(WHEN\\|AND\\)\\b" 'bdd/keyword-when)
     (hi-lock-face-buffer "\\b\\(THEN\\)\\b" 'bdd/keyword-then))
