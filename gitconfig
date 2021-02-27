@@ -24,7 +24,7 @@
 [fetch]
   prune = true
 [user]
-	name = lainnie
+	name = h-hive
 	email = l.diallo.pro@gmail.com
 [pull]
 	rebase = true

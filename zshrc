@@ -169,7 +169,10 @@ alias yws="yarn workspaces"
 
 export REACT_EDITOR='vim'
 
-setxkbmap -option caps:escape
+if command -v setxkbmap
+then
+  setxkbmap -option caps:escape && true
+fi
 
 bindkey -v
 
@@ -185,6 +188,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+export PATH="$PATH:$VOLTA_HOME/bin"
 
 export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -206,3 +210,5 @@ fpath=($fpath "/home/leny/.zfunctions")
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
