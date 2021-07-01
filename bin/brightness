@@ -1,0 +1,10 @@
+#! /bin/sh
+
+cat /sys/class/backlight/intel_backlight/brightness
+
+case $1 in
+    ''|*[!0-9]*) echo "wrong format" ;;
+    *) echo $1 > /sys/class/backlight/intel_backlight/brightness ;;
+esac
+
+cat /sys/class/backlight/intel_backlight/brightness
