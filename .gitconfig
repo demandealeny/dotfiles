@@ -23,13 +23,7 @@
   template = ~/.gitmessage
 [fetch]
   prune = true
-[user]
-	name = h-hive
-	email = l.diallo.pro@gmail.com
 [pull]
 	rebase = true
 [rerere]
 	enabled = true
-[github]
-	user = Lainnie
-	email = l.diallo.pro@gmail.com
