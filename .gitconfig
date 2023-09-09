@@ -9,7 +9,7 @@
   ci = commit -v
   co = checkout
   st = status
-  up = !git fetch origin && git rebase origin/master
+  up = !git fetch origin && git rebase origin/main
   s = status -s
   lg = log --oneline --decorate --all --graph
 [core]
@@ -27,3 +27,6 @@
 	rebase = true
 [rerere]
 	enabled = true
+[user]
+	email = leny@demandealeny.com
+	name = demandealeny.com
